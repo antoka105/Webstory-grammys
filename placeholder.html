@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Recreación póster — Visualización</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f0f10;
+      --teal:#0d8b7f;
+      --pink:#f0a2c6;
+      --accent:#ffd24d;
+      --cream:#f5f3ee;
+      --card:#111214;
+    }
+    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;color:var(--cream);background:var(--bg)}
+    /* Page container that simulates poster paper */
+    .page{
+      max-width:1100px;margin:28px auto;padding:36px;border-radius:8px;box-sizing:border-box;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      box-shadow: 0 18px 60px rgba(0,0,0,0.6);
+    }
+
+    /* Header */
+    .header{display:flex;align-items:flex-start;gap:20px}
+    .logo-wrap{width:160px;flex:0 0 160px}
+    .logo{width:100%;height:100%;display:block}
+    .title{
+      font-family: 'Montserrat', sans-serif; font-weight:800; font-size:54px; line-height:0.95; margin:0;color:var(--cream);
+      text-shadow: 0 6px 18px rgba(0,0,0,0.6);
+    }
+    .subtitle{margin:10px 0 0 0;font-size:16px;opacity:.95;color:rgba(255,255,255,0.9)}
+
+    /* Large decorative shapes */
+    .decor{
+      position:absolute;pointer-events:none;z-index:0;mix-blend-mode:screen;opacity:0.85
+    }
+    .star{position:absolute;right:48px;top:12px;width:120px;height:120px;background:var(--accent);clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);transform:rotate(-8deg)}
+    .triangle{position:absolute;left:-80px;top:180px;width:340px;height:340px;background:var(--teal);transform:skew(-18deg)}
+
+    /* Main content area */
+    .content{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:start;position:relative;z-index:2}
+
+    /* Left column: text + charts */
+    .article{background:transparent}
+    .heading-section{display:flex;align-items:center;gap:12px;margin:20px 0}
+    .big-heading{font-family:'Montserrat',sans-serif;font-size:28px;margin:0}
+    .lead{color:rgba(255,255,255,0.9);line-height:1.6}
+    .paper{
+      margin-top:18px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:8px;box-shadow:0 20px 40px rgba(0,0,0,0.6)
+    }
+
+    /* Chart frames (editable placeholders) */
+    .chart-frame{background:var(--pink);padding:18px;border-radius:6px;display:block;margin:20px 0;box-shadow:0 8px 24px rgba(0,0,0,0.5)}
+    .chart-frame img{display:block;width:100%;height:auto;border-radius:4px}
+
+    /* Right column: info + image */
+    .aside{position:relative}
+    .aside .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:16px;border-radius:8px;margin-bottom:20px}
+    .aside h3{margin:0 0 8px 0;font-size:16px;color:var(--cream)}
+    .aside p{margin:0;color:rgba(255,255,255,0.9);line-height:1.5}
+    .portrait{width:100%;border-radius:12px;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,0.6)}
+    .portrait img{width:100%;height:auto;display:block;filter:grayscale(0) saturate(1) contrast(1)}
+
+    /* footer notes */
+    .footer{margin-top:22px;font-size:13px;color:rgba(255,255,255,0.75)}
+
+    /* Editable utility classes */
+    .editable{outline:2px dashed rgba(255,255,255,0.03);padding:4px}
+    .muted{opacity:0.85}
+
+    @media (max-width:980px){
+      .content{grid-template-columns:1fr}
+      .logo-wrap{display:none}
+      .title{font-size:40px}
+    }
+  </style>
+</head>
+<body>
+  <div class="page" role="main">
+    <div class="decor star" aria-hidden="true"></div>
+    <div class="decor triangle" aria-hidden="true"></div>
+
+    <header class="header">
+      <div class="logo-wrap">
+        <!-- Puedes sustituir este SVG por el trofeo del afiche -->
+        <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="trofeo">
+          <rect width="100" height="100" rx="6" fill="rgba(0,0,0,0.2)" />
+          <circle cx="50" cy="40" r="22" fill="var(--accent)"/>
+        </svg>
+      </div>
+      <div>
+        <h1 class="title">Los Grammys: ¿Premiando excelencia o mera popularidad?</h1>
+        <p class="subtitle">Una revisión de nominaciones y ganadores — álbum del año</p>
+      </div>
+    </header>
+
+    <main class="content">
+      <article class="article">
+        <section class="paper editable" contenteditable="true">
+          <p class="lead">Los Grammys se han consolidado como uno de los mayores reconocimientos en la industria musical. Desde su primera ceremonia en 1959, la Academia premia aquello que consideran lo más destacado de la música de cada año.</p>
+          <h2 class="big-heading">Álbum del Año a través del tiempo</h2>
+          <p class="muted">Observa cómo varía la composición de géneros entre nominados y ganadores en las dos visualizaciones abajo. Puedes reemplazar las imágenes por gráficos interactivos o por SVG embebidos.</p>
+
+          <div class="chart-frame" id="chart-nominados">
+            <!-- Sustituir por un gráfico real (SVG/Canvas o librería) -->
+            <img src="/mnt/data/page0.png" alt="Gráfico nominados — placeholder" />
+          </div>
+
+          <p class="muted">Si enfocamos solo en los ganadores, la distribución cambia y muestra un predominio del Pop a partir de 2015. Aquí abajo hay una versión reducida del gráfico de ganadores (reemplázalo por tu visualización).</p>
+
+          <div class="chart-frame" id="chart-ganadores">
+            <img src="/mnt/data/page1.png" alt="Gráfico ganadores — placeholder" />
+          </div>
+
+        </section>
+
+        <p class="footer">Fuente: Análisis propio sobre nominaciones y ganadores. Archivo original (PDF): <a href="/mnt/data/Visualizaci%C3%B3n_at%C3%B3micaaa.pdf" style="color:var(--accent);text-decoration:underline">/mnt/data/Visualización_atómicaaa.pdf</a></p>
+      </article>
+
+      <aside class="aside">
+        <div class="card editable" contenteditable="true">
+          <h3>Resumen</h3>
+          <p>El análisis indica un aumento de representatividad del Pop entre los ganadores. Puedes editar este texto directamente y usarlo como contenido para la web.</p>
+        </div>
+
+        <div class="card editable" contenteditable="true">
+          <h3>Leyenda</h3>
+          <p>Colores y categorías. Reemplaza por una leyenda dinámica vinculada a tu gráfica (SVG/D3).</p>
+        </div>
+
+        <div class="portrait">
+          <!-- Imagen del artista — reemplazar por la imagen recortada del PDF o por otra -->
+          <img src="/mnt/data/page0.png" alt="artista placeholder" />
+        </div>
+      </aside>
+    </main>
+  </div>
+</body>
+</html>
