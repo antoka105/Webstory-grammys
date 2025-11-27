@@ -1,7 +1,10 @@
 body {
-    padding: 0;
+    padding-left: 25px;
+    padding-right: 25px;
     margin: 0;
     background-image: url(./images/Fondo-sitio.png);
+    background-color: #1d1d1b;
+
 
   font-family: "Raleway", sans-serif;
   font-optical-sizing: auto;
@@ -23,11 +26,26 @@ background-color: #1d1d1b;
 
 #grupo1 {
 
+text-align: center;
  display: flex;
  align-items: center;
  gap:20px;
 
 }
+
+.cuadro {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.texto1 {
+  position: absolute;
+  top: 58%;
+  left: 59%;
+  transform: translate(-50%, -50%)
+  }
+
 
 #grupo2 {
 
@@ -35,6 +53,21 @@ background-color: #1d1d1b;
  align-items: center;
 gap: 20px;
 
+}
+
+.cuadro2 {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.texto2 {
+  position: absolute;
+  bottom: -20;
+  background-color: transparent;
+  color: #eae4da;
+  padding-left: 6%;
+  padding-right: 45%;
 }
 
 #imagen1 {
