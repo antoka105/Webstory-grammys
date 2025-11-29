@@ -36,6 +36,32 @@ text-align: center;
 
 }
 
+#vis1 {
+
+  display: flex;
+  justify-content: center;
+  background-image: url("./images/cuadro3.png"); /* tu imagen de marco */
+  background-size: contain;           /* ajusta la imagen */
+  background-repeat: no-repeat;
+  background-position: center;
+
+  padding: 40px;
+  
+}
+
+#vis2 {
+
+  display: flex;
+  justify-content: center;
+  background-image: url("./images/cuadro4.png"); /* tu imagen de marco */
+  background-size: contain;           /* ajusta la imagen */
+  background-repeat: no-repeat;
+  background-position: center;
+
+  padding: 50px;
+  
+}
+
 #cuerpo3 {
 
  display: flex;
@@ -47,6 +73,7 @@ text-align: center;
 #botones {
 
 text-align: center;
+padding-top: 60px;
 
 }
 
